@@ -19,14 +19,12 @@ $(NAME):	$(OBJ) $(LIB)
 
 $(NAME): 	$(OBJ) $(LIB)
 	$(AR) $(NAME) $(OBJ)
-	@echo "All compliled"
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
-	@echo "Full clean"
 
 re: fclean all
 
