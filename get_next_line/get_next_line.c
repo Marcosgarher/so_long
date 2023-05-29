@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcogar <marcogar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 09:44:58 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/17 16:27:52 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:36:53 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,22 +107,4 @@ char	*get_next_line(int fd)
 	line = ft_newline(rest);
 	rest = ft_rest(rest);
 	return (line);
-}
-
-int	main(void)
-{
-	int		fd;
-	int		i;
-	char	*line;
-
-	fd = open("hola", O_RDONLY);
-	i = 0;
-	while (i++ < 1)
-	{
-		line = get_next_line(fd);
-		printf("La linea: %s\n", line);
-		free(line);
-	}
-	close(fd);
-	return (0);
 }

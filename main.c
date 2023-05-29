@@ -6,11 +6,11 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:41:46 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/25 15:48:40 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:00:14 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
+#include <mlx.h>
 
 typedef struct	s_data {
 	void	*img;

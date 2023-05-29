@@ -1,4 +1,4 @@
-NAME = libftprintf.a
+NAME = ft_printf.a
 LIB = ft_printf.h
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -18,13 +18,13 @@ all:	$(NAME)
 $(NAME):	$(OBJ) $(LIB)
 
 $(NAME): 	$(OBJ) $(LIB)
-	$(AR) $(NAME) $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
