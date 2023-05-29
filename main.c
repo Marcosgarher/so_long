@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:41:46 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/29 14:00:14 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/29 16:03:12 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
+typedef struct {
+    int x;
+    int y;
+} Character;
+
+void key_press_hook(int key, void *param)
+{
+	
+}
 int	main(void)
 {
 	void	*mlx;
@@ -53,12 +62,7 @@ int	main(void)
         j++;
 	}
 	imagen.img = mlx_xpm_file_to_image(mlx, "xpm/dino.xpm", &width, &height);
+	mlx_key_hook(mlx_win, key_press_hook, NULL);
 	mlx_put_image_to_window(mlx, mlx_win, imagen.img, 64, 64);
-	imagen.img = mlx_xpm_file_to_image(mlx, "xpm/arbusto.xpm", &width, &height);
-	mlx_put_image_to_window(mlx, mlx_win, imagen.img, 0, 64);
-	imagen.img = mlx_xpm_file_to_image(mlx, "xpm/pata.xpm", &width, &height);
-	mlx_put_image_to_window(mlx, mlx_win, imagen.img, 128, 64);
-	imagen.img = mlx_xpm_file_to_image(mlx, "xpm/portal.xpm", &width, &height);
-	mlx_put_image_to_window(mlx, mlx_win, imagen.img, 192, 64);
 	mlx_loop(mlx);
 }
