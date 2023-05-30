@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcogar <marcogar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marcogar <marcogar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 09:44:55 by marcogar          #+#    #+#             */
-/*   Updated: 2023/04/21 12:51:55 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:22:31 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ size_t	ft_strlen_gnl(char *s)
 size_t	ft_strchr_gnl(char *s, int c)
 {
 	int		i;
-	char	chr;
 
 	if (!s)
 		return (0);
 	i = 0;
-	chr = (char)c;
 	while (s[i] != '\0')
 	{
 		if (s[i] == (char)c)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: marcogar <marcogar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/30 16:22:20 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:22:18 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int ft_validmap(char *name_map)
 
 int	main(int argc, char *argv[])
 {
-	char **map;
+	//char **map;
 	int fd;
 	
 	if (argc != 2)
@@ -40,7 +40,7 @@ int	main(int argc, char *argv[])
 		fd = open(argv[1], O_RDONLY);
 		if (fd < 0)
 			ft_error("Error al abrir el archivo");
-		map = ft_readmap(fd);
+		//map = ft_readmap(fd);
 		close(fd);
 	}
 	else
