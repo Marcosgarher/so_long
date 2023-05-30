@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_valid_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/30 14:00:50 by marcogar         ###   ########.fr       */
+/*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
+/*   Updated: 2023/05/30 14:09:22 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 char **ft_readmap(int fd)
 {
@@ -29,23 +29,4 @@ char **ft_readmap(int fd)
 	}
 	map = ft_split(strmap, '\n');
     return(map);
-}
-int	main(int argc, char *argv[])
-{
-	char **map;
-	int fd;
-	
-	if (argc == 2)
-	{
-		ft_validmap(argv[1]);
-		fd = open(argv[1], O_RDONLY);
-		map = ft_readmap(fd);
-		while (*map != NULL)
-		{
-			ft_printf("%s\n", *map);
-			map++;
-		}
-		close(fd);
-	}
-	return (0);
 }

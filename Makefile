@@ -6,7 +6,7 @@
 #    By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:12:38 by marcogar          #+#    #+#              #
-#    Updated: 2023/05/30 12:24:22 by marcogar         ###   ########.fr        #
+#    Updated: 2023/05/30 14:10:31 by marcogar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,20 +22,21 @@ GNL = get_next_line.c get_next_line_utils.c
 SRC_GNL = $(addprefix get_next_line/, $(GNL))
 OBJ_GNL = $(SRC_GNL:.c=.o)
 
-SRC_GAME = main.c
-OBJ_GAME = $(SRC_GAME:.c=.o)
+SL = ft_valid_map.c
+SRC_SL = $(addprefix src/, $(SL))
+OBJ_SL = $(SRC_GAME:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ_GAME) $(OBJ_GNL)
 	@make -C libft/
 	@make -C ft_printf/
-	@$(CC) $(CFLAGS) $(SLFLAGS) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJ_GNL) $(OBJ_GAME) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SLFLAGS) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJ_GNL) $(OBJ_SL) -o $(NAME)
 
 clean:
 	@make clean -C libft/
 	@make clean -C ft_printf/
-	@$(RM) $(OBJ_GAME) $(OBJ_GNL)
+	@$(RM) $(OBJ_SL) $(OBJ_GNL)
 
 fclean: clean
 	@make fclean -C libft/
