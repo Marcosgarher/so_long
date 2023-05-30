@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/30 16:20:58 by marcogar         ###   ########.fr       */
+/*   Created: 2023/03/09 11:14:54 by marcogar          #+#    #+#             */
+/*   Updated: 2023/03/09 13:01:52 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "../ft_printf/ft_printf.h"
-# include "../get_next_line/get_next_line.h"
-# include "../libft/libft.h"
-# include <limits.h>
-# include <mlx.h>
-# include <stdlib.h>
-
-char	**ft_readmap(int fd);
-void    ft_error(char *err);
-
-#endif
+int	ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
+}

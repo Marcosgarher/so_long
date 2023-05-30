@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/30 16:20:58 by marcogar         ###   ########.fr       */
+/*   Created: 2023/03/09 13:02:33 by marcogar          #+#    #+#             */
+/*   Updated: 2023/05/30 15:08:43 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "../ft_printf/ft_printf.h"
-# include "../get_next_line/get_next_line.h"
-# include "../libft/libft.h"
-# include <limits.h>
-# include <mlx.h>
-# include <stdlib.h>
+#include "libft.h"
 
-char	**ft_readmap(int fd);
-void    ft_error(char *err);
+size_t	ft_strlen(const char *s)
+{
+	int	i;
 
-#endif
+	i = 0;
+	if (!s)
+		return(0);
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
