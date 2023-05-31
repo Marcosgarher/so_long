@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/31 09:52:08 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:14:10 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,17 @@
 # include <mlx.h>
 # include <stdlib.h>
 
-char	**ft_readmap(int fd);
-void	ft_error(char *err);
-int		ft_validmap(char *name_map);
+typedef struct s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}			t_data;
+
+char		**ft_readmap(int fd);
+void		ft_error(char *err);
+int			ft_validmap(char *name_map);
 
 #endif

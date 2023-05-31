@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/31 10:17:47 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:57:11 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,25 @@
 
 int	ft_check_map(char **map)
 {
-	if()
+	int i;
+	int p;
+	int c;
+	int e;
+	
+	i = 0;
+	p = 0;
+	c = 0;
+	e = 0;
+	while(map[i] != NULL)
+	{
+		if (ft_strchr(map[i], 'P'))
+			++p;
+		if (ft_strchr(map[i], 'C'))
+			++c;
+		if (ft_strchr(map[i], 'E'))
+			++e;
+		++i;
+	}
 }
 
 int	main(int argc, char *argv[])
