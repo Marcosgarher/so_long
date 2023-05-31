@@ -6,19 +6,19 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/30 14:09:22 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:41:41 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-char **ft_readmap(int fd)
+char	**ft_readmap(int fd)
 {
 	char	*line;
-	char	*strmap = NULL;
+	char	*strmap;
 	char	**map;
 
-	
+	strmap = NULL;
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -28,5 +28,5 @@ char **ft_readmap(int fd)
 		free(line);
 	}
 	map = ft_split(strmap, '\n');
-    return(map);
+	return (map);
 }

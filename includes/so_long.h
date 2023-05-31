@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcogar <marcogar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/30 21:21:06 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:42:41 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../get_next_line/get_next_line.h"
 # include "../libft/libft.h"
 # include <limits.h>
-//# include <mlx.h>
+# include <mlx.h>
 # include <stdlib.h>
 
 char	**ft_readmap(int fd);
