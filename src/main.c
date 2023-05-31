@@ -6,26 +6,15 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/31 09:36:40 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/31 10:17:47 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int ft_validmap(char *name_map)
+int	ft_check_map(char **map)
 {
-	char **rute;
-	char *ext;
-	int	i;
-
-	i = 0;
-	rute = ft_split(name_map, '/');
-	while (rute[i] && rute[i + 1])
-		i++;
-	ext = ft_strrchr(rute[i], '.');
-	if (ft_strnstr(ext, ".ber", 4) != 0 && ft_strlen(ext) == 4)
-		return(1);
-	return(0);
+	if()
 }
 
 int	main(int argc, char *argv[])
@@ -45,5 +34,6 @@ int	main(int argc, char *argv[])
 	}
 	else
 		ft_error("El mapa no es valido");
+	ft_check_map(map);
 	return (0);
 }

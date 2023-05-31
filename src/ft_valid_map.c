@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/31 09:41:41 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/31 09:51:47 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,19 @@ char	**ft_readmap(int fd)
 	}
 	map = ft_split(strmap, '\n');
 	return (map);
+}
+int ft_validmap(char *name_map)
+{
+	char **rute;
+	char *ext;
+	int	i;
+
+	i = 0;
+	rute = ft_split(name_map, '/');
+	while (rute[i] && rute[i + 1])
+		i++;
+	ext = ft_strrchr(rute[i], '.');
+	if (ft_strnstr(ext, ".ber", 4) != 0 && ft_strlen(ext) == 4)
+		return(1);
+	return(0);
 }
