@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/31 09:51:47 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:48:55 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**ft_readmap(int fd)
 	map = ft_split(strmap, '\n');
 	return (map);
 }
-int ft_validmap(char *name_map)
+int ft_valid_file(char *name_map)
 {
 	char **rute;
 	char *ext;

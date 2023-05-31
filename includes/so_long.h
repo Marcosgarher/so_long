@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/31 12:14:10 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/05/31 13:02:38 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,17 @@ typedef struct s_data
 	int		endian;
 }			t_data;
 
+typedef struct s_map
+{
+	int		c;
+	int		p;
+	int		e;
+}			t_map_vars;
+
 char		**ft_readmap(int fd);
 void		ft_error(char *err);
-int			ft_validmap(char *name_map);
+int			ft_valid_file(char *name_map);
+int			ft_check_map(char **map);
+int			ft_valid_char(char c);
 
 #endif
