@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/01 15:29:16 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:00:19 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_check_map(char **map)
 	t_map_vars	*data_map;
 
 	data_map = malloc(sizeof(t_map_vars));
-	if(!data_map)
+	if (!data_map)
 		return (0);
 	data_map->c = 0;
 	data_map->e = 0;
@@ -45,15 +45,17 @@ int	ft_check_map(char **map)
 		}
 		++i;
 	}
-	printf("Personaje:%i\nColecionables:%i\nSalida:%i", data_map->p, data_map->c, data_map->e);
+	printf("Personaje:%i\nColecionables:%i\nSalida:%i", data_map->p,
+			data_map->c, data_map->e);
 	return (0);
 }
 
 int	main(int argc, char *argv[])
 {
-	char	**map = NULL;
+	char	**map;
 	int		fd;
 
+	map = NULL;
 	if (argc != 2)
 		ft_error("Debes de pasa un mapa");
 	if (ft_valid_file(argv[1]))
