@@ -6,7 +6,7 @@
 #    By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:12:38 by marcogar          #+#    #+#              #
-#    Updated: 2023/06/01 13:21:10 by marcogar         ###   ########.fr        #
+#    Updated: 2023/06/01 14:59:07 by marcogar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ PRINTF_LIB = ft_printf/ft_printf.a
 GNL = get_next_line.c get_next_line_utils.c
 SRC_GNL = $(addprefix get_next_line/, $(GNL))
 OBJ_GNL = $(SRC_GNL:.c=.o)
-
 SL = ft_valid_map.c main.c error.c
 SRC_SL = $(addprefix src/, $(SL))
 OBJ_SL = $(SRC_SL:.c=.o)
