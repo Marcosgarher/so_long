@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marcogar <marcogar@student.42madrid.com    +#+  +:+       +#+         #
+#    By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:12:38 by marcogar          #+#    #+#              #
-#    Updated: 2023/05/30 21:24:11 by marcogar         ###   ########.fr        #
+#    Updated: 2023/06/01 13:21:10 by marcogar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ all: $(NAME)
 $(NAME): $(OBJ_SL) $(OBJ_GNL)
 	@make -C libft/
 	@make -C ft_printf/
-	@$(CC) $(CFLAGS) $(SLFLAGS) $(LIBFT_LIB) $(PRINTF_LIB) $(OBJ_GNL) $(OBJ_SL) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SLFLAGS) $(OBJ_GNL) $(OBJ_SL) -o $(NAME) $(LIBFT_LIB) $(PRINTF_LIB)
 
 clean:
 	@make clean -C libft/

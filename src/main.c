@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/31 13:16:53 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:54:03 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@
 int	ft_check_map(char **map)
 {
 	int			i;
+	int			j;
 	t_map_vars	data_map;
+
+	i = 0;
+	j = 0;
+	data_map.c = 0;
+	data_map.e = 0;
+	data_map.p = 0;
 
 	
 }
@@ -41,7 +48,6 @@ int	main(int argc, char *argv[])
 	}
 	else
 		ft_error("El mapa no es valido");
-	ft_printf("%s", map[1]);
 	ft_check_map(map);
 	return (0);
 }
