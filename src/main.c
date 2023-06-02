@@ -6,20 +6,21 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/01 16:00:19 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/02 10:29:14 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_valid_char(char c, t_map_vars *data_map)
+int	ft_valid_char(char c, t_map_vars *data_map)
 {
 	if (c == 'P')
 		data_map->p++;
-	if (c == 'E')
+	else if (c == 'E')
 		data_map->e++;
-	if (c == 'C')
+	else if (c == 'C')
 		data_map->c++;
+	return (0);
 }
 
 int	ft_check_map(char **map)
@@ -40,14 +41,15 @@ int	ft_check_map(char **map)
 		j = 0;
 		while (map[i][j] != '\0')
 		{
-			ft_valid_char(map[i][j], data_map);
+			if (ft_valid_char(map[i][j], data_map))
+				return(0);
 			++j;
 		}
 		++i;
 	}
 	printf("Personaje:%i\nColecionables:%i\nSalida:%i", data_map->p,
 			data_map->c, data_map->e);
-	return (0);
+	return (1);
 }
 
 int	main(int argc, char *argv[])
