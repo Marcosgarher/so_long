@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/05 15:32:09 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:40:47 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ int			ft_valid_char(char c, t_map_vars *data_map);
 void		ft_ini_vars(t_map_vars *data_map);
 void		ft_check_sprites(t_map_vars *data_map);
 int			ft_valid_map(char *name_map);
+void		ft_size_map(char **map, t_win *data_win);
+int			ft_print_map(char *name_map);
 
 #endif

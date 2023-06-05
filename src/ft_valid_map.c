@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/05 15:33:42 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:28:42 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_valid_char(char c, t_map_vars *data_map)
 	}
 	return (0);
 }
-void ft_check_sprites(t_map_vars *data_map)
+void	ft_check_sprites(t_map_vars *data_map)
 {
 	if (data_map->p <= 0 || data_map->p > 1)
 	{
@@ -95,11 +95,11 @@ int	ft_check_map(char **map)
 	return (1);
 }
 
-int ft_valid_map(char *name_map)
+int	ft_valid_map(char *name_map)
 {
-	char **map;
-	int  fd;
-	
+	char	**map;
+	int		fd;
+
 	map = NULL;
 	if (ft_valid_file(name_map))
 	{

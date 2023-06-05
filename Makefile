@@ -6,7 +6,7 @@
 #    By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:12:38 by marcogar          #+#    #+#              #
-#    Updated: 2023/06/05 11:50:13 by marcogar         ###   ########.fr        #
+#    Updated: 2023/06/05 16:41:04 by marcogar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ OBJ_GNL = $(SRC_GNL:.c=.o)
 SL = main.c\
 	 error.c\
 	 ft_valid_map.c\
-	 ft_valid_map_utils.c  
+	 ft_valid_map_utils.c\
+	 ft_print_map.c
 SRC_SL = $(addprefix src/, $(SL))
 OBJ_SL = $(SRC_SL:.c=.o)
 
