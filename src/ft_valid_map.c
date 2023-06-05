@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/05 12:15:20 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/05 13:29:54 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_valid_char(char c, t_map_vars *data_map)
 }
 void ft_valid_map(t_map_vars *data_map)
 {
-	if (data_map->p < 0 && data_map->p > 1)
+	if (data_map->p <= 0 || data_map->p > 1)
 	{
 		free(data_map);
 		ft_error("Falta o hay más de un personaje");
@@ -80,7 +80,7 @@ void ft_valid_map(t_map_vars *data_map)
 		free(data_map);
 		ft_error("Faltan colecionables");
 	}
-	else if (data_map->e < 0 && data_map->e > 1)
+	else if (data_map->e <= 0 || data_map->e > 1)
 	{
 		free(data_map);
 		ft_error("Falta o hay más de una salida");
