@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/05 12:34:37 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:32:09 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,19 @@ typedef struct s_map
 	int		w;
 }			t_map_vars;
 
+typedef struct s_win
+{
+	int		weight;
+	int		height;
+}			t_win;
+
 char		**ft_readmap(int fd);
 void		ft_error(char *err);
 int			ft_valid_file(char *name_map);
 int			ft_check_map(char **map);
 int			ft_valid_char(char c, t_map_vars *data_map);
 void		ft_ini_vars(t_map_vars *data_map);
-void		ft_valid_map(t_map_vars *data_map);
+void		ft_check_sprites(t_map_vars *data_map);
+int			ft_valid_map(char *name_map);
 
 #endif

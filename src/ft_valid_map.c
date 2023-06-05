@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/05 13:29:54 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:33:42 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,6 @@ char	**ft_readmap(int fd)
 	map = ft_split(strmap, '\n');
 	return (map);
 }
-int	ft_valid_file(char *name_map)
-{
-	char	**rute;
-	char	*ext;
-	int		i;
-
-	i = 0;
-	rute = ft_split(name_map, '/');
-	while (rute[i] && rute[i + 1])
-		i++;
-	if (ft_strrchr(rute[i], '.') != NULL)
-	{
-		ext = ft_strrchr(rute[i], '.');
-		if (ft_strnstr(ext, ".ber", 4) != 0 && ft_strlen(ext) == 4)
-			return (1);
-	}
-	return (0);
-}
 
 int	ft_valid_char(char c, t_map_vars *data_map)
 {
@@ -68,7 +50,7 @@ int	ft_valid_char(char c, t_map_vars *data_map)
 	}
 	return (0);
 }
-void ft_valid_map(t_map_vars *data_map)
+void ft_check_sprites(t_map_vars *data_map)
 {
 	if (data_map->p <= 0 || data_map->p > 1)
 	{
@@ -78,7 +60,7 @@ void ft_valid_map(t_map_vars *data_map)
 	else if (data_map->c < 1)
 	{
 		free(data_map);
-		ft_error("Faltan colecionables");
+		ft_error("Faltan coleccionables");
 	}
 	else if (data_map->e <= 0 || data_map->e > 1)
 	{
@@ -109,6 +91,26 @@ int	ft_check_map(char **map)
 		}
 		++i;
 	}
-	ft_valid_map(data_map);
+	ft_check_sprites(data_map);
 	return (1);
+}
+
+int ft_valid_map(char *name_map)
+{
+	char **map;
+	int  fd;
+	
+	map = NULL;
+	if (ft_valid_file(name_map))
+	{
+		fd = open(name_map, O_RDONLY);
+		if (fd < 0)
+			ft_error("Error al abrir el archivo");
+		map = ft_readmap(fd);
+		close(fd);
+	}
+	else
+		ft_error("El mapa no es valido");
+	ft_check_map(map);
+	return (0);
 }
