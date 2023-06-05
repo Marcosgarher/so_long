@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/01 16:00:14 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:13:19 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,56 @@ int	ft_valid_file(char *name_map)
 			return (1);
 	}
 	return (0);
+}
+
+int	ft_valid_char(char c, t_map_vars *data_map)
+{
+	if (c == 'P')
+		data_map->p++;
+	else if (c == 'E')
+		data_map->e++;
+	else if (c == 'C')
+		data_map->c++;
+	else if (c == '1')
+		data_map->w++;
+	else if (c == '0')
+		data_map->f++;
+	else
+		ft_error("Caracter no valido");
+		
+	return (0);
+}
+
+int	ft_check_map(char **map)
+{
+	int			i;
+	int			j;
+	t_map_vars	*data_map;
+
+	data_map = malloc(sizeof(t_map_vars));
+	if (!data_map)
+		return (0);
+	i = 0;
+	ft_ini_vars(data_map);
+	while (map[i] != NULL)
+	{
+		j = 0;
+		while (map[i][j] != '\0')
+		{
+			if (ft_valid_char(map[i][j], data_map))
+				return(0);
+			++j;
+		}
+		++i;
+	}
+	return (1);
+}
+
+void ft_ini_vars(t_map_vars *data_map)
+{
+	data_map->c = 0;
+	data_map->e = 0;
+	data_map->p = 0;
+	data_map->w = 0;
+	data_map->f = 0;
 }
