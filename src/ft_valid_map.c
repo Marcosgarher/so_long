@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/05 10:13:19 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/05 12:15:20 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,30 @@ int	ft_valid_char(char c, t_map_vars *data_map)
 	else if (c == '0')
 		data_map->f++;
 	else
+	{
+		free(data_map);
 		ft_error("Caracter no valido");
-		
+	}
 	return (0);
+}
+void ft_valid_map(t_map_vars *data_map)
+{
+	if (data_map->p < 0 && data_map->p > 1)
+	{
+		free(data_map);
+		ft_error("Falta o hay más de un personaje");
+	}
+	else if (data_map->c < 1)
+	{
+		free(data_map);
+		ft_error("Faltan colecionables");
+	}
+	else if (data_map->e < 0 && data_map->e > 1)
+	{
+		free(data_map);
+		ft_error("Falta o hay más de una salida");
+	}
+	return ;
 }
 
 int	ft_check_map(char **map)
@@ -83,20 +104,11 @@ int	ft_check_map(char **map)
 		j = 0;
 		while (map[i][j] != '\0')
 		{
-			if (ft_valid_char(map[i][j], data_map))
-				return(0);
+			ft_valid_char(map[i][j], data_map);
 			++j;
 		}
 		++i;
 	}
+	ft_valid_map(data_map);
 	return (1);
-}
-
-void ft_ini_vars(t_map_vars *data_map)
-{
-	data_map->c = 0;
-	data_map->e = 0;
-	data_map->p = 0;
-	data_map->w = 0;
-	data_map->f = 0;
 }
