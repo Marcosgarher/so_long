@@ -6,7 +6,7 @@
 #    By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:12:38 by marcogar          #+#    #+#              #
-#    Updated: 2023/06/05 16:41:04 by marcogar         ###   ########.fr        #
+#    Updated: 2023/06/06 12:57:58 by marcogar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,11 @@ $(NAME): $(OBJ_SL) $(OBJ_GNL)
 	@$(CC) $(CFLAGS) $(SLFLAGS) $(OBJ_GNL) $(OBJ_SL) -o $(NAME) $(LIBFT_LIB) $(PRINTF_LIB)
 
 clean:
-	@make clean -C libft/
-	@make clean -C ft_printf/
+	@make fclean -C libft/
+	@make fclean -C ft_printf/
 	@$(RM) $(OBJ_SL) $(OBJ_GNL)
 
 fclean: clean
-	@make fclean -C libft/
-	@make fclean -C ft_printf/
 	@$(RM) $(NAME)
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/05 16:28:42 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/06 12:52:39 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	ft_check_sprites(t_map_vars *data_map)
 		free(data_map);
 		ft_error("Falta o hay más de una salida");
 	}
-	return ;
 }
 
 int	ft_check_map(char **map)
@@ -76,6 +75,8 @@ int	ft_check_map(char **map)
 	int			j;
 	t_map_vars	*data_map;
 
+	if(!map)
+		return(0);
 	data_map = malloc(sizeof(t_map_vars));
 	if (!data_map)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/05 16:40:47 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/06 12:42:01 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ typedef struct s_map
 
 typedef struct s_win
 {
-	int		weight;
+	void	*mlx_win;
+	int		width;
 	int		height;
 }			t_win;
 
@@ -52,6 +53,8 @@ void		ft_ini_vars(t_map_vars *data_map);
 void		ft_check_sprites(t_map_vars *data_map);
 int			ft_valid_map(char *name_map);
 void		ft_size_map(char **map, t_win *data_win);
+void		ft_put_gound(void *mlx, t_win *data_win);
+void		ft_open_win(t_win *data_win);
 int			ft_print_map(char *name_map);
 
 #endif
