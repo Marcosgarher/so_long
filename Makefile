@@ -6,7 +6,7 @@
 #    By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:12:38 by marcogar          #+#    #+#              #
-#    Updated: 2023/06/06 12:57:58 by marcogar         ###   ########.fr        #
+#    Updated: 2023/06/07 14:52:06 by marcogar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,12 @@ GNL = get_next_line.c get_next_line_utils.c
 SRC_GNL = $(addprefix get_next_line/, $(GNL))
 OBJ_GNL = $(SRC_GNL:.c=.o)
 SL = main.c\
+	 utils.c\
 	 error.c\
 	 ft_valid_map.c\
 	 ft_valid_map_utils.c\
-	 ft_print_map.c
+	 ft_print_map.c\
+	 ft_print_map_utils.c
 SRC_SL = $(addprefix src/, $(SL))
 OBJ_SL = $(SRC_SL:.c=.o)
 
