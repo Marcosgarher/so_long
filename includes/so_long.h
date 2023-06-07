@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/06 16:28:57 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/07 12:58:04 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int			ft_valid_map(char *name_map);
 /*PRINT MAP*/
 void		ft_size_map(char **map, t_win *data_win);
 void		ft_put_ground(void *mlx, t_win *data_win);
+void		ft_select_img(void *mlx, char pointmap, t_data *img);
 void		ft_put_others(void *mlx, t_win *data_win, char **map);
 void		ft_open_win(t_win *data_win, char **map);
 int			ft_print_map(char *name_map);
