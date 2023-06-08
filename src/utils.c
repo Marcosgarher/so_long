@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:51:21 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/08 12:54:19 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/08 15:38:34 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,18 @@ int	ft_exit(int key, void *mlx)
 	return (1);
 }
 
-int ft_key_log(int key, void *mlx)
+int ft_key_log(int key, void *mlx, void *mlx_win)
 {
 	if(mlx)
 	{/*TODO*/}
-	printf("%d\n", key);
-	if(key == UP_KEY)
-		printf("Arriba");
+	if(key == KEY_UP ||  key == KEY_W)
+		printf("Arriba\n");
+	if(key == KEY_DOWN ||  key == KEY_S)
+		printf("Abajo\n");
+	if(key == KEY_LEFT ||  key == KEY_A)
+		printf("Izquierda\n");
+	if(key == KEY_RIGHT ||  key == KEY_D)
+		printf("Derecha\n");
 	if (key == 53)
 		ft_exit(key, mlx);
 	return(1);
