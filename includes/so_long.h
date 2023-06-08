@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/07 16:44:53 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/08 13:06:29 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <mlx.h>
 # include <stdlib.h>
 
+/* KEYS */
+# define UP_KEY 126
 typedef struct s_data
 {
 	void	*img;
@@ -69,5 +71,6 @@ int			ft_print_map(char *name_map);
 /*OTHERS*/
 void		ft_free_map(char **map);
 int			ft_exit(int key, void *mlx);
+int			ft_key_log(int key, void *mlx);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:39:53 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/07 16:31:47 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/08 13:07:04 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	ft_open_win(t_win *data_win, char **map)
 			(data_win->height) * 64, "So_long");
 	ft_put_ground(mlx, data_win);
 	ft_put_others(mlx, data_win, map);
+	mlx_key_hook(data_win->mlx_win, ft_key_log, mlx);
 	mlx_hook(data_win->mlx_win, 17, (1L << 17), ft_exit, mlx);
 	mlx_loop(mlx);
 }
@@ -88,7 +89,7 @@ int	ft_print_map(char *name_map)
 	int		fd;
 	char	**map;
 	t_win	*data_win;
-
+	
 	data_win = NULL;
 	fd = open(name_map, O_RDONLY);
 	map = ft_readmap(fd);
