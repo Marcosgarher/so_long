@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:39:53 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 12:16:34 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:40:12 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	ft_put_ground(t_info *info)
 	int	imgheight;
 
 	info->imgh = 0;
-		info->data.img = mlx_xpm_file_to_image(info->mlx, "xpm/suelo.xpm", &imgwidth, &imgheight);
+	info->data.img = mlx_xpm_file_to_image(info->mlx, "xpm/suelo.xpm",
+			&imgwidth, &imgheight);
 	while (info->imgh < info->winh)
 	{
 		info->imgw = 0;
@@ -51,13 +52,13 @@ void	ft_put_others(t_info *info)
 	while (info->imgh < info->winh)
 	{
 		info->imgw = 0;
-		while(info->imgw < info->winw)
+		while (info->imgw < info->winw)
 		{
-			ft_select_img(info->map[info->imgh][info->imgw], info);
+			ft_select_img(info->map[info->imgh][info->imgw], info, (info->imgw + info->imgh));
 			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->imgw * 64, info->imgh * 64);
 			info->imgw++;
 		}
-	info->imgh++;
+		info->imgh++;
 	}
 }
 
@@ -70,12 +71,12 @@ void	ft_open_win(t_info *info)
 	ft_put_others(info);
 	mlx_key_hook(info->mlx_win, ft_key_log, info);
 	mlx_hook(info->mlx_win, 17, (1L << 17), ft_exit, info);
-	mlx_loop(info->mlx);  
+	mlx_loop(info->mlx);
 }
 
 int	ft_print_map(char *name_map, t_info *info)
 {
-	int		fd;
+	int	fd;
 
 	fd = open(name_map, O_RDONLY);
 	info->map = ft_readmap(fd);

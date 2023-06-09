@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:11:39 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 11:08:46 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:46:09 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // 	return (img);
 // }
 
-void ft_select_img(char pointmap, t_info *info)
+void ft_select_img(char pointmap, t_info *info, int div)
 {
 	int			imgwidth;
 	int			imgheight;
