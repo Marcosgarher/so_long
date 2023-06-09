@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 14:39:41 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:35:53 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_info
 
 /* VALID MAP */
 
-char			**ft_readmap(int fd);
+void			ft_readmap(int fd, t_info *info);
 void			ft_error(char *err);
 int				ft_valid_file(char *name_map);
 int				ft_check_map(t_info *info);
@@ -76,7 +76,7 @@ int				ft_valid_map(char *name_map, t_info *info);
 
 void			ft_size_map(char **map, t_info *info);
 void			ft_put_ground(t_info *info);
-void			ft_select_img(char pointmap, t_info *info, int div);
+void			ft_select_img(char pointmap, t_info *info);
 void			ft_put_others(t_info *info);
 void			ft_open_win(t_info *info);
 int				ft_print_map(char *name_map, t_info *info);

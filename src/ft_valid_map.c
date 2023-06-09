@@ -6,17 +6,16 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 12:57:59 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:35:49 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-char	**ft_readmap(int fd)
+void	ft_readmap(int fd, t_info *info)
 {
 	char	*line;
 	char	*strmap;
-	char	**map;
 
 	strmap = NULL;
 	while (1)
@@ -27,9 +26,8 @@ char	**ft_readmap(int fd)
 		strmap = ft_strjoin(strmap, line);
 		free(line);
 	}
-	map = ft_split(strmap, '\n');
+	info->map = ft_split(strmap, '\n');
 	free(strmap);
-	return (map);
 }
 
 int	ft_valid_char(char c, t_info *info)
@@ -101,7 +99,7 @@ int	ft_valid_map(char *name_map, t_info *info)
 		fd = open(name_map, O_RDONLY);
 		if (fd < 0)
 			ft_error("Error al abrir el archivo");
-		info->map = ft_readmap(fd);
+		ft_readmap(fd, info);
 		close(fd);
 	}
 	else

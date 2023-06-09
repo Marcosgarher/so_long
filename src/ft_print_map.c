@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:39:53 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 14:40:12 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:22:35 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_put_others(t_info *info)
 		info->imgw = 0;
 		while (info->imgw < info->winw)
 		{
-			ft_select_img(info->map[info->imgh][info->imgw], info, (info->imgw + info->imgh));
+			ft_select_img(info->map[info->imgh][info->imgw], info);
 			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->imgw * 64, info->imgh * 64);
 			info->imgw++;
 		}
@@ -79,7 +79,7 @@ int	ft_print_map(char *name_map, t_info *info)
 	int	fd;
 
 	fd = open(name_map, O_RDONLY);
-	info->map = ft_readmap(fd);
+	ft_readmap(fd, info);
 	ft_size_map(info->map, info);
 	ft_printf("Esto es el ancho: %i\nEsto es el alto: %i\n", info->winw,
 			info->winh);
