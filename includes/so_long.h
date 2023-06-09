@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 12:22:05 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 13:06:11 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,14 @@ void		ft_put_others(t_info *info);
 void		ft_open_win(t_info *info);
 int			ft_print_map(char *name_map, t_info *info);
 /* MOVEMENTS */
+void 		ft_up(t_info *info);
+void 		ft_down(t_info *info);
+void 		ft_left(t_info *info);
+void 		ft_right(t_info *info);
+int			ft_key_log(int key, t_info *info);
 /* OTHERS */
 void		ft_free_map(t_info *info);
+void		ft_free_rute(char **rute);
 int			ft_exit(int key, t_info *info);
-int			ft_key_log(int key, t_info *info);
 
 #endif

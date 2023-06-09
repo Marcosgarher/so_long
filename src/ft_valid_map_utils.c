@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:48:54 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 12:04:16 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 13:06:05 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void ft_ini_vars(t_info *info)
 	info->mlx_win = NULL;
 	info->imgw = 0;
 	info->imgh = 0;
-	info->c = 0;
-	info->e = 0;
-	info->p = 0;
-	info->w = 0;
-	info->f = 0;
+	info->coin = 0;
+	info->exit = 0;
+	info->player = 0;
+	info->wall = 0;
+	info->ground = 0;
 	info->winw = 0;
 	info->winh = 0;
 	info->movements = 0;
@@ -44,6 +44,8 @@ int	ft_valid_file(char *name_map)
 		ext = ft_strrchr(rute[i], '.');
 		if (ft_strnstr(ext, ".ber", 4) != 0 && ft_strlen(ext) == 4)
 			return (1);
+		free(ext);
 	}
+	ft_free_rute(rute);
 	return (0);
 }

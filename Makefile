@@ -6,14 +6,14 @@
 #    By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:12:38 by marcogar          #+#    #+#              #
-#    Updated: 2023/06/09 11:38:15 by marcogar         ###   ########.fr        #
+#    Updated: 2023/06/09 12:55:21 by marcogar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 RM = rm -rf
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3 
+CFLAGS = -Wall -Werror -Wextra
 SLFLAGS = -lmlx -framework OpenGL -framework AppKit
 LIBFT_LIB = libft/libft.a
 PRINTF_LIB = ft_printf/ft_printf.a
