@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:55:16 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/30 15:03:02 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:30:59 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 
 	if (!s1)
 	{
-		s1 = ft_calloc(1 , sizeof(char));
+		s1 = ft_calloc(1, sizeof(char));
 		s1[0] = '\0';
 	}
 	if (!s1 || !s2)

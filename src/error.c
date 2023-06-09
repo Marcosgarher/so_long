@@ -6,14 +6,14 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 16:19:24 by marcogar          #+#    #+#             */
-/*   Updated: 2023/05/30 16:20:28 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:38:59 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void    ft_error(char *err)
+void	ft_error(char *err)
 {
-    ft_printf("\033[0;91m%s\033[0m\n", err);
-    exit(1);
+	ft_printf("\033[0;91m%s\033[0m\n", err);
+	exit(1);
 }

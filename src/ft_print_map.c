@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:39:53 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 17:22:35 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:33:40 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_size_map(char **map, t_info *info)
 		info->winh++;
 	}
 }
+
 void	ft_put_ground(t_info *info)
 {
 	int	imgwidth;
@@ -39,7 +40,7 @@ void	ft_put_ground(t_info *info)
 		while (info->imgw < info->winw)
 		{
 			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img,
-					info->imgw * 64, info->imgh * 64);
+				info->imgw * 64, info->imgh * 64);
 			info->imgw++;
 		}
 		info->imgh++;
@@ -55,7 +56,8 @@ void	ft_put_others(t_info *info)
 		while (info->imgw < info->winw)
 		{
 			ft_select_img(info->map[info->imgh][info->imgw], info);
-			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->imgw * 64, info->imgh * 64);
+			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img,
+				info->imgw * 64, info->imgh * 64);
 			info->imgw++;
 		}
 		info->imgh++;
@@ -82,7 +84,7 @@ int	ft_print_map(char *name_map, t_info *info)
 	ft_readmap(fd, info);
 	ft_size_map(info->map, info);
 	ft_printf("Esto es el ancho: %i\nEsto es el alto: %i\n", info->winw,
-			info->winh);
+		info->winh);
 	ft_open_win(info);
 	return (0);
 }

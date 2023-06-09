@@ -6,15 +6,15 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:51:21 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 14:12:07 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:34:00 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void ft_free_map(t_info *info)
+void	ft_free_map(t_info *info)
 {
-    int	i;
+	int	i;
 
 	i = 0;
 	while (info->map[i] != NULL)
@@ -25,7 +25,7 @@ void ft_free_map(t_info *info)
 	free(info->map);
 }
 
-void ft_free_rute(char **rute)
+void	ft_free_rute(char **rute)
 {
 	int	i;
 
@@ -46,14 +46,14 @@ int	ft_exit(int key, t_info *info)
 	return (1);
 }
 
-void ft_serch_player(t_info *info)
+void	ft_serch_player(t_info *info)
 {
 	info->infop.y = 0;
-
-	while(info->map[info->infop.y] != NULL)
+	while (info->map[info->infop.y] != NULL)
 	{
 		info->infop.x = 0;
-		while(info->map[info->infop.y][info->infop.x] != '\0' && info->map[info->infop.y][info->infop.x] != 'P')
+		while (info->map[info->infop.y][info->infop.x] != '\0'
+			&& info->map[info->infop.y][info->infop.x] != 'P')
 		{
 			info->infop.x++;
 		}

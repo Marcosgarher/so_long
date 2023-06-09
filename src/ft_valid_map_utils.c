@@ -6,13 +6,13 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:48:54 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 13:06:05 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:36:00 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void ft_ini_vars(t_info *info)
+void	ft_ini_vars(t_info *info)
 {
 	info->mlx = NULL;
 	info->mlx_win = NULL;
@@ -26,7 +26,7 @@ void ft_ini_vars(t_info *info)
 	info->winw = 0;
 	info->winh = 0;
 	info->movements = 0;
-	info-> map = NULL;
+	info->map = NULL;
 }
 
 int	ft_valid_file(char *name_map)
