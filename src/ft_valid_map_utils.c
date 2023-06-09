@@ -6,19 +6,27 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:48:54 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/05 15:29:16 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 12:04:16 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void ft_ini_vars(t_map_vars *data_map)
+void ft_ini_vars(t_info *info)
 {
-	data_map->c = 0;
-	data_map->e = 0;
-	data_map->p = 0;
-	data_map->w = 0;
-	data_map->f = 0;
+	info->mlx = NULL;
+	info->mlx_win = NULL;
+	info->imgw = 0;
+	info->imgh = 0;
+	info->c = 0;
+	info->e = 0;
+	info->p = 0;
+	info->w = 0;
+	info->f = 0;
+	info->winw = 0;
+	info->winh = 0;
+	info->movements = 0;
+	info-> map = NULL;
 }
 
 int	ft_valid_file(char *name_map)

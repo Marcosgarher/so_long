@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:11:39 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/08 12:45:36 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 11:08:46 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@
 // 	return (img);
 // }
 
-void ft_select_img(void *mlx, char pointmap, t_data *img)
+void ft_select_img(char pointmap, t_info *info)
 {
 	int			imgwidth;
 	int			imgheight;
 	
 	if(pointmap == '1')
-		img->img = mlx_xpm_file_to_image(mlx, "xpm/pared.xpm", &imgwidth, &imgheight);
+		info->data.img = mlx_xpm_file_to_image(info->mlx, "xpm/pared.xpm", &imgwidth, &imgheight);
 	if(pointmap == 'P')
-		img->img = mlx_xpm_file_to_image(mlx, "xpm/dino.xpm", &imgwidth, &imgheight);
+		info->data.img = mlx_xpm_file_to_image(info->mlx, "xpm/dino.xpm", &imgwidth, &imgheight);
 	if(pointmap == 'E')
-		img->img = mlx_xpm_file_to_image(mlx, "xpm/portal.xpm", &imgwidth, &imgheight);
+		info->data.img = mlx_xpm_file_to_image(info->mlx, "xpm/portal.xpm", &imgwidth, &imgheight);
 	if(pointmap == 'C')
-		img->img = mlx_xpm_file_to_image(mlx, "xpm/pata.xpm", &imgwidth, &imgheight);
+		info->data.img = mlx_xpm_file_to_image(info->mlx, "xpm/pata.xpm", &imgwidth, &imgheight);
 	if(pointmap == '0')
-		img->img = mlx_xpm_file_to_image(mlx, "xpm/suelo.xpm", &imgwidth, &imgheight);
+		info->data.img = mlx_xpm_file_to_image(info->mlx, "xpm/suelo.xpm", &imgwidth, &imgheight);
 	return ;
 }

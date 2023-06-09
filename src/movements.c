@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 14:51:21 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 12:12:28 by marcogar         ###   ########.fr       */
+/*   Created: 2023/06/09 11:37:47 by marcogar          #+#    #+#             */
+/*   Updated: 2023/06/09 12:03:25 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void ft_free_map(t_info *info)
+int ft_key_log(int key, t_info *info)
 {
-    int	i;
-
-	i = 0;
-	while (info->map[i] != 0)
+	if(info->mlx)
+	{/*TODO*/}
+	if(key == KEY_W)
+    {
+        ft_up();
+		printf("Arriba\n");
+    }
+	if(key == KEY_S)
 	{
-		free(info->map[i]);
-		i++;
-	}
-	free(info->map);
+        ft_down();
+		printf("Abajo\n");
+    }
+	if(key == KEY_A)
+	{
+        ft_left();
+		printf("Izquierda\n");
+    }
+	if(key == KEY_D)
+	{
+        ft_right();
+		printf("Derecha\n");
+    }
+	if (key == 53)
+		ft_exit(key, info->mlx);
+	return(1);
 }
 
-int	ft_exit(int key, t_info *info)
-{
-	if (key && info->mlx)
-		exit(1);
-	exit(1);
-	return (1);
-}

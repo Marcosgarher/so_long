@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/07 16:42:11 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 12:22:56 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,88 +31,81 @@ char	**ft_readmap(int fd)
 	return (map);
 }
 
-int	ft_valid_char(char c, t_map_vars *data_map)
+int	ft_valid_char(char c, t_info *info)
 {
 	if (c == 'P')
-		data_map->p++;
+		info->player++;
 	else if (c == 'E')
-		data_map->e++;
+		info->exit++;
 	else if (c == 'C')
-		data_map->c++;
+		info->coin++;
 	else if (c == '1')
-		data_map->w++;
+		info->wall++;
 	else if (c == '0')
-		data_map->f++;
+		info->ground++;
 	else
 	{
-		free(data_map);
+		free(info);
 		ft_error("Caracter no valido");
 	}
 	return (0);
 }
-void	ft_check_sprites(t_map_vars *data_map)
+void	ft_check_sprites(t_info *info)
 {
-	if (data_map->p <= 0 || data_map->p > 1)
+	if (info->player <= 0 || info->player > 1)
 	{
-		free(data_map);
+		free(info);
 		ft_error("Falta o hay más de un personaje");
 	}
-	else if (data_map->c < 1)
+	else if (info->coin < 1)
 	{
-		free(data_map);
+		free(info);
 		ft_error("Faltan coleccionables");
 	}
-	else if (data_map->e <= 0 || data_map->e > 1)
+	else if (info->exit <= 0 || info->exit > 1)
 	{
-		free(data_map);
+		free(info);
 		ft_error("Falta o hay más de una salida");
 	}
 }
 
-int	ft_check_map(char **map)
+int	ft_check_map(t_info *info)
 {
 	int			i;
 	int			j;
-	t_map_vars	*data_map;
 
-	if(!map)
+	if(!info->map)
 		return(0);
-	data_map = malloc(sizeof(t_map_vars));
-	if (!data_map)
-		return (0);
 	i = 0;
-	ft_ini_vars(data_map);
-	while (map[i] != NULL)
+	while (info->map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j] != '\0')
+		while (info->map[i][j] != '\0')
 		{
-			ft_valid_char(map[i][j], data_map);
+			ft_valid_char(info->map[i][j], info);
 			++j;
 		}
 		++i;
 	}
-	ft_check_sprites(data_map);
+	ft_check_sprites(info);
 	return (1);
 }
 
-int	ft_valid_map(char *name_map)
+int	ft_valid_map(char *name_map, t_info *info)
 {
-	char	**map;
 	int		fd;
 
-	map = NULL;
 	if (ft_valid_file(name_map))
 	{
 		fd = open(name_map, O_RDONLY);
 		if (fd < 0)
 			ft_error("Error al abrir el archivo");
-		map = ft_readmap(fd);
+		info->map = ft_readmap(fd);
 		close(fd);
 	}
 	else
 		ft_error("El mapa no es valido");
-	ft_check_map(map);
-	ft_free_map(map);
+	ft_check_map(info);
+	ft_free_map(info);
 	return (0);
 }

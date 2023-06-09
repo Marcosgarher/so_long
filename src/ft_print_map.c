@@ -6,100 +6,82 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:39:53 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/08 15:43:05 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/09 12:16:34 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_size_map(char **map, t_win *data_win)
+void	ft_size_map(char **map, t_info *info)
 {
 	if (!map)
 		return ;
-	while (map[data_win->height])
+	info->winh = 0;
+	while (map[info->winh])
 	{
-		data_win->width = 0;
-		while (map[data_win->height][data_win->width])
-			data_win->width++;
-		data_win->height++;
+		info->winw = 0;
+		while (map[info->winh][info->winw])
+			info->winw++;
+		info->winh++;
 	}
 }
-void	ft_put_ground(void *mlx, t_win *data_win)
+void	ft_put_ground(t_info *info)
 {
-	t_data		img;
-	t_imgplus	imgplus;
-	int			imgwidth;
-	int			imgheight;
+	int	imgwidth;
+	int	imgheight;
 
-	imgplus.height = 0;
-	img.img = mlx_xpm_file_to_image(mlx, "xpm/suelo.xpm", &imgwidth,
-			&imgheight);
-	while (imgplus.height < data_win->height)
+	info->imgh = 0;
+		info->data.img = mlx_xpm_file_to_image(info->mlx, "xpm/suelo.xpm", &imgwidth, &imgheight);
+	while (info->imgh < info->winh)
 	{
-		imgplus.width = 0;
-		while (imgplus.width < data_win->width)
+		info->imgw = 0;
+		while (info->imgw < info->winw)
 		{
-			mlx_put_image_to_window(mlx, data_win->mlx_win, img.img,
-				imgplus.width * 64, imgplus.height * 64);
-			imgplus.width++;
+			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img,
+					info->imgw * 64, info->imgh * 64);
+			info->imgw++;
 		}
-		imgplus.height++;
+		info->imgh++;
 	}
 }
 
-void ft_put_others(void *mlx, t_win *data_win, char **map)
+void	ft_put_others(t_info *info)
 {
-	t_data		*img;
-	t_imgplus	imgplus;
-	
-	img = malloc(sizeof(t_data));
-	if(!img)
-		return ;
-	imgplus.height = 0;
-	while(imgplus.height < data_win->height)
+	info->imgh = 0;
+	while (info->imgh < info->winh)
 	{
-		imgplus.width = 0;
-			while(imgplus.width < data_win->width)
-			{
-				ft_select_img(mlx, map[imgplus.height][imgplus.width], img);
-				mlx_put_image_to_window(mlx, data_win->mlx_win, img->img, imgplus.width * 64, imgplus.height * 64);
-				imgplus.width++;
-			}
-		imgplus.height++;
+		info->imgw = 0;
+		while(info->imgw < info->winw)
+		{
+			ft_select_img(info->map[info->imgh][info->imgw], info);
+			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->imgw * 64, info->imgh * 64);
+			info->imgw++;
+		}
+	info->imgh++;
 	}
-	free(img);
 }
 
-void	ft_open_win(t_win *data_win, char **map)
+void	ft_open_win(t_info *info)
 {
-	void	*mlx;
-
-	mlx = mlx_init();
-	data_win->mlx_win = mlx_new_window(mlx, (data_win->width) * 64,
-			(data_win->height) * 64, "So_long");
-	ft_put_ground(mlx, data_win);
-	ft_put_others(mlx, data_win, map);
-	mlx_key_hook(data_win->mlx_win, ft_key_log, mlx);
-	mlx_hook(data_win->mlx_win, 17, (1L << 17), ft_exit, mlx);
-	mlx_loop(mlx);
+	info->mlx = mlx_init();
+	info->mlx_win = mlx_new_window(info->mlx, (info->winw) * 64, (info->winh)
+			* 64, "So_long");
+	ft_put_ground(info);
+	ft_put_others(info);
+	mlx_key_hook(info->mlx_win, ft_key_log, info);
+	mlx_hook(info->mlx_win, 17, (1L << 17), ft_exit, info);
+	mlx_loop(info->mlx);  
 }
 
-int	ft_print_map(char *name_map)
+int	ft_print_map(char *name_map, t_info *info)
 {
 	int		fd;
-	char	**map;
-	t_win	*data_win;
-	
-	data_win = NULL;
+
 	fd = open(name_map, O_RDONLY);
-	map = ft_readmap(fd);
-	data_win = malloc(sizeof(t_win));
-	if (!data_win)
-		return (0);
-	ft_memset(data_win, 0, sizeof(t_win));
-	ft_size_map(map, data_win);
-	ft_printf("Esto es el ancho: %i\nEsto es el alto: %i\n", data_win->width,
-		data_win->height);
-	ft_open_win(data_win, map);
+	info->map = ft_readmap(fd);
+	ft_size_map(info->map, info);
+	ft_printf("Esto es el ancho: %i\nEsto es el alto: %i\n", info->winw,
+			info->winh);
+	ft_open_win(info);
 	return (0);
 }
