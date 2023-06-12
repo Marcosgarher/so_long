@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 12:00:47 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:50:44 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int				ft_print_map(char *name_map, t_info *info);
 
 /* MOVEMENTS */
 
+void			ft_render(t_info *info, int x, int y, char c);
 void			ft_up(t_info *info);
 void			ft_down(t_info *info);
 void			ft_left(t_info *info);

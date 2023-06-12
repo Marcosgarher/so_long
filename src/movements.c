@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 11:37:47 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 12:55:48 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 15:19:54 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,16 @@ void	ft_up(t_info *info)
 	if (info->map[info->infop.y - 1][info->infop.x] != '1')
 	{
 		if (info->map[info->infop.y - 1][info->infop.x] == 'C')
+		{
+			ft_render(info, info->infop.x, (info->infop.y - 1), '0');
+			info->map[info->infop.y - 1][info->infop.x] = '0';
 			info->coin--;
+		}
 		if (info->map[info->infop.y - 1][info->infop.x] != 'E')
 		{
-			ft_select_img('0', info);
-			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->infop.x * 64, info->infop.y * 64);
+			ft_render(info, info->infop.x, info->infop.y, '0');
 			info->infop.y--;
-			ft_select_img('P', info);
-			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->infop.x * 64, info->infop.y * 64);
+			ft_render(info, info->infop.x, info->infop.y, 'P');
 			info->infop.movc++;
 			ft_printf("Movements: %i\n", info->infop.movc);
 		}
@@ -54,14 +56,16 @@ void	ft_down(t_info *info)
 	if (info->map[info->infop.y + 1][info->infop.x] != '1')
 	{
 		if (info->map[info->infop.y + 1][info->infop.x] == 'C')
+		{
+			ft_render(info, info->infop.x, (info->infop.y + 1), '0');
+			info->map[info->infop.y + 1][info->infop.x] = '0';
 			info->coin--;
+		}
 		if (info->map[info->infop.y + 1][info->infop.x] != 'E')
 		{
-			ft_select_img('0', info);
-			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->infop.x * 64, info->infop.y * 64);
+			ft_render(info, info->infop.x, info->infop.y, '0');
 			info->infop.y++;
-			ft_select_img('P', info);
-			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->infop.x * 64, info->infop.y * 64);
+			ft_render(info, info->infop.x, info->infop.y, 'P');
 			info->infop.movc++;
 			ft_printf("Movements: %i\n", info->infop.movc);
 		}
@@ -76,14 +80,16 @@ void	ft_left(t_info *info)
 	if (info->map[info->infop.y][info->infop.x - 1] != '1')
 	{
 		if (info->map[info->infop.y][info->infop.x - 1] == 'C')
+		{
+			ft_render(info, (info->infop.x - 1), info->infop.y, '0');
+			info->map[info->infop.y][info->infop.x - 1] = '0';
 			info->coin--;
+		}
 		if (info->map[info->infop.y][info->infop.x - 1] != 'E')
 		{
-			ft_select_img('0', info);
-			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->infop.x * 64, info->infop.y * 64);
+			ft_render(info, info->infop.x, info->infop.y, '0');
 			info->infop.x--;
-			ft_select_img('P', info);
-			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->infop.x * 64, info->infop.y * 64);
+			ft_render(info, info->infop.x, info->infop.y, 'P');
 			info->infop.movc++;
 			ft_printf("Movements: %i\n", info->infop.movc);
 		}
@@ -98,14 +104,16 @@ void	ft_right(t_info *info)
 	if (info->map[info->infop.y][info->infop.x + 1] != '1')
 	{
 		if (info->map[info->infop.y][info->infop.x + 1] == 'C')
+		{
+			ft_render(info, (info->infop.x + 1), info->infop.y, '0');
+			info->map[info->infop.y][info->infop.x + 1] = '0';
 			info->coin--;
+		}
 		if (info->map[info->infop.y][info->infop.x + 1] != 'E')
 		{
-			ft_select_img('0', info);
-			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->infop.x * 64, info->infop.y * 64);
+			ft_render(info, info->infop.x, info->infop.y, '0');
 			info->infop.x++;
-			ft_select_img('P', info);
-			mlx_put_image_to_window(info->mlx, info->mlx_win, info->data.img, info->infop.x * 64, info->infop.y * 64);
+			ft_render(info, info->infop.x, info->infop.y, 'P');
 			info->infop.movc++;
 			ft_printf("Movements: %i\n", info->infop.movc);
 		}
