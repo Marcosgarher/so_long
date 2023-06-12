@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 14:50:44 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:37:26 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,12 @@ int				ft_valid_char(char c, t_info *info);
 void			ft_ini_vars(t_info *info);
 void			ft_check_sprites(t_info *info);
 void			ft_is_rectangle(t_info *info);
+void			ft_check_border(t_info *info);
 int				ft_valid_map(char *name_map, t_info *info);
+
+/* PARSE */
+
+void			ft_parse(t_info *info);
 
 /* PRINT MAP */
 
