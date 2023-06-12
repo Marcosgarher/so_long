@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 10:43:06 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 12:51:09 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 {
 	t_info	*info;
 
-	atexit(ft_leaks);
+	//atexit(ft_leaks);
 	if (argc != 2)
 		ft_error("Debes de pasar un mapa");
 	if (argc == 2)

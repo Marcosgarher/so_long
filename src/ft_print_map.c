@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:39:53 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 17:33:40 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 12:57:46 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	ft_open_win(t_info *info)
 			* 64, "So_long");
 	ft_put_ground(info);
 	ft_put_others(info);
+	ft_serch_player(info);
 	mlx_key_hook(info->mlx_win, ft_key_log, info);
 	mlx_hook(info->mlx_win, 17, (1L << 17), ft_exit, info);
 	mlx_loop(info->mlx);

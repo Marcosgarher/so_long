@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:51:21 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 10:54:23 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 12:47:56 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_free_rute(char **rute)
 	int	i;
 
 	i = 0;
-	while(rute[i])
+	while (rute[i])
 	{
 		free(rute[i]);
 		i++;

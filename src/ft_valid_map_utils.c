@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:48:54 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 10:53:45 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 12:23:58 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,16 @@ int	ft_valid_file(char *name_map)
 	}
 	return (0);
 }
-// void ft_is_rectangle(t_info *info)
-// {
-// 	char **rtg;
-// 	int i;
-// 	int j;
-// 	int max;
+
+void	ft_is_rectangle(t_info *info)
+{
+	int i;
 	
-// 	i = 0;
-// 	rtg = info->map;
-// 	while(rtg[i])
-// 	{
-// 		j = 0;
-// 		while(rtg[i][j])
-// 			++j;
-// 		if ()
-// 		++i;
-// 	}
-// }
+	i = 0;
+	while (info->map[i + 1])
+	{
+		if (ft_strlen(info->map[i]) != ft_strlen(info->map[i + 1]))
+			ft_error("No es un rectangulo");
+		++i;
+	}
+}
