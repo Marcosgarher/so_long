@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:51:21 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 17:34:00 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 10:54:23 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_free_rute(char **rute)
 	int	i;
 
 	i = 0;
-	while (rute[i] != NULL)
+	while(rute[i])
 	{
 		free(rute[i]);
 		i++;
@@ -61,4 +61,22 @@ void	ft_serch_player(t_info *info)
 			return ;
 		info->infop.y++;
 	}
+}
+
+void	ft_ini_vars(t_info *info)
+{
+	info->mlx = NULL;
+	info->mlx_win = NULL;
+	info->infop.movc = 0;
+	info->imgw = 0;
+	info->imgh = 0;
+	info->coin = 0;
+	info->exit = 0;
+	info->player = 0;
+	info->wall = 0;
+	info->ground = 0;
+	info->winw = 0;
+	info->winh = 0;
+	info->movements = 0;
+	info->map = NULL;
 }

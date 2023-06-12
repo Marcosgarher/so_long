@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 17:36:40 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 10:39:03 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_check_map(t_info *info)
 	int	j;
 
 	if (!info->map)
-		return (0);
+		return (1);
 	i = 0;
 	while (info->map[i] != NULL)
 	{
@@ -88,7 +88,7 @@ int	ft_check_map(t_info *info)
 		++i;
 	}
 	ft_check_sprites(info);
-	return (1);
+	return (0);
 }
 
 int	ft_valid_map(char *name_map, t_info *info)
@@ -105,7 +105,9 @@ int	ft_valid_map(char *name_map, t_info *info)
 	}
 	else
 		ft_error("El mapa no es valido");
-	ft_check_map(info);
+	//ft_is_rectangle(info);
+	if(ft_check_map(info))
+		ft_error("Error en el mapa");
 	ft_free_map(info);
 	return (0);
 }

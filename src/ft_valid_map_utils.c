@@ -6,28 +6,11 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:48:54 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/09 17:36:00 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/12 10:53:45 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-void	ft_ini_vars(t_info *info)
-{
-	info->mlx = NULL;
-	info->mlx_win = NULL;
-	info->imgw = 0;
-	info->imgh = 0;
-	info->coin = 0;
-	info->exit = 0;
-	info->player = 0;
-	info->wall = 0;
-	info->ground = 0;
-	info->winw = 0;
-	info->winh = 0;
-	info->movements = 0;
-	info->map = NULL;
-}
 
 int	ft_valid_file(char *name_map)
 {
@@ -43,9 +26,28 @@ int	ft_valid_file(char *name_map)
 	{
 		ext = ft_strrchr(rute[i], '.');
 		if (ft_strnstr(ext, ".ber", 4) != 0 && ft_strlen(ext) == 4)
+		{
+			ft_free_rute(rute);
 			return (1);
-		free(ext);
+		}
 	}
-	ft_free_rute(rute);
 	return (0);
 }
+// void ft_is_rectangle(t_info *info)
+// {
+// 	char **rtg;
+// 	int i;
+// 	int j;
+// 	int max;
+	
+// 	i = 0;
+// 	rtg = info->map;
+// 	while(rtg[i])
+// 	{
+// 		j = 0;
+// 		while(rtg[i][j])
+// 			++j;
+// 		if ()
+// 		++i;
+// 	}
+// }
