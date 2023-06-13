@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:11:39 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 15:29:35 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:46:28 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ void	ft_select_img(char pointmap, t_info *info)
 		info->data.img = create_image(info->mlx, "xpm/suelo.xpm");
 	return ;
 }
-

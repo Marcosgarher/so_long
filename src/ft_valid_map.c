@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 12:11:41 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:33:23 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ void	ft_readmap(int fd, t_info *info)
 		line = get_next_line(fd);
 		if (!(ft_strncmp(line, "(null)", ft_strlen(line))))
 			break ;
+		if(line[0] == '\n')
+		{
+			ft_printf("\033[0;91mMapa no valido\033[0m\n");
+			exit(1);
+		}
 		strmap = ft_strjoin(strmap, line);
 		free(line);
 	}
@@ -43,30 +48,18 @@ int	ft_valid_char(char c, t_info *info)
 	else if (c == '0')
 		info->ground++;
 	else
-	{
-		free(info);
-		ft_error("Caracter no valido");
-	}
+		ft_error("Caracter no valido", info);
 	return (0);
 }
 
 void	ft_check_sprites(t_info *info)
 {
 	if (info->player <= 0 || info->player > 1)
-	{
-		free(info);
-		ft_error("Falta o hay más de un personaje");
-	}
+		ft_error("Falta o hay más de un personaje", info);
 	else if (info->coin < 1)
-	{
-		free(info);
-		ft_error("Faltan coleccionables");
-	}
+		ft_error("Faltan coleccionables", info);
 	else if (info->exit <= 0 || info->exit > 1)
-	{
-		free(info);
-		ft_error("Falta o hay más de una salida");
-	}
+		ft_error("Falta o hay más de una salida", info);
 }
 
 int	ft_check_map(t_info *info)
@@ -99,14 +92,14 @@ int	ft_valid_map(char *name_map, t_info *info)
 	{
 		fd = open(name_map, O_RDONLY);
 		if (fd < 0)
-			ft_error("Error al abrir el archivo");
+			ft_error("Error al abrir el archivo", info);
 		ft_readmap(fd, info);
 		close(fd);
 	}
 	else
-		ft_error("El mapa no es valido");
+		ft_error("El mapa no es valido", info);
 	if (ft_check_map(info))
-		ft_error("Error en el mapa");
+		ft_error("Error en el mapa", info);
 	ft_is_rectangle(info);
 	ft_check_border(info);
 	parse(info);

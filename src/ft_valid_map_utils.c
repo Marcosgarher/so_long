@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:48:54 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 17:27:11 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:07:37 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ int	ft_valid_file(char *name_map)
 
 void	ft_is_rectangle(t_info *info)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (info->map[i + 1])
 	{
 		if (ft_strlen(info->map[i]) != ft_strlen(info->map[i + 1]))
-			ft_error("No es un rectangulo");
+			ft_error("No es un rectangulo", info);
 		++i;
 	}
 }
@@ -51,26 +51,26 @@ void	ft_check_border(t_info *info)
 {
 	int	x;
 	int	y;
-	int len;
-	
+	int	len;
+
 	len = ft_strlen(info->map[0]);
 	y = 0;
 	x = 0;
-	while(info->map[0][x])
+	while (info->map[0][x])
 	{
-		if(info->map[0][x++] != '1')
-			ft_error("El mapa no esta cerrado");
+		if (info->map[0][x++] != '1')
+			ft_error("El mapa no esta cerrado", info);
 	}
-	while(info->map[y + 1])
+	while (info->map[y + 1])
 	{
-		if(info->map[y][0] != '1' || info->map[y][len - 1] != '1')
-			ft_error("El mapa no esta cerrado");
+		if (info->map[y][0] != '1' || info->map[y][len - 1] != '1')
+			ft_error("El mapa no esta cerrado", info);
 		++y;
 	}
 	x = 0;
-	while(info->map[y][x])
+	while (info->map[y][x])
 	{
-		if(info->map[y][x++] != '1')
-			ft_error("El mapa no esta cerrado");
+		if (info->map[y][x++] != '1')
+			ft_error("El mapa no esta cerrado", info);
 	}
 }

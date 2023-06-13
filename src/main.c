@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 12:51:09 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:59:04 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	main(int argc, char *argv[])
 {
 	t_info	*info;
 
-	//atexit(ft_leaks);
+	atexit(ft_leaks);
 	if (argc != 2)
-		ft_error("Debes de pasar un mapa");
+		ft_printf("\033[0;91mDebes de pasar un mapa\033[0m\n");
 	if (argc == 2)
 	{
 		info = malloc(sizeof(t_info));
@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 		ft_ini_vars(info);
 		ft_valid_map(argv[1], info);
 		if (ft_print_map(argv[1], info))
-			ft_error("Error al mostrar el mapa");
+			ft_error("Error al mostrar el mapa", info);
 		free(info);
 	}
 	return (0);

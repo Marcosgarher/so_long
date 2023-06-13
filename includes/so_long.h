@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 15:30:32 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:17:13 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ typedef struct s_info
 /* VALID MAP */
 
 void			ft_readmap(int fd, t_info *info);
-void			ft_error(char *err);
 int				ft_valid_file(char *name_map);
 int				ft_check_map(t_info *info);
 int				ft_valid_char(char c, t_info *info);
@@ -78,7 +77,7 @@ int				ft_valid_map(char *name_map, t_info *info);
 /* PARSE */
 
 int				valid_path(char **map);
-int  			valid_path_coins(char **map);
+int				valid_path_coins(char **map);
 char			**ft_copy_map(t_info *info);
 char			**find_path(char **map, int x, int y);
 char			**find_path_coins(char **map, int x, int y);
@@ -110,5 +109,9 @@ void			ft_free_rute(char **rute);
 int				ft_exit(int key, t_info *info);
 void			ft_serch_player(t_info *info);
 void			ft_leaks(void);
+
+/* ERROR */
+
+void			ft_error(char *err, t_info *info);
 
 #endif

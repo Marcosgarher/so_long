@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 11:37:47 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 14:41:46 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:59:50 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_up(t_info *info)
 		}
 		else if (info->map[info->infop.y - 1][info->infop.x] == 'E'
 				&& info->coin == 0)
-			ft_error("YOU WIN!!");
+			ft_error("YOU WIN!!", info);
 	}
 }
 
@@ -71,7 +71,7 @@ void	ft_down(t_info *info)
 		}
 		else if (info->map[info->infop.y + 1][info->infop.x] == 'E'
 				&& info->coin == 0)
-			ft_error("YOU WIN!!");
+			ft_error("YOU WIN!!", info);
 	}
 }
 
@@ -95,7 +95,7 @@ void	ft_left(t_info *info)
 		}
 		else if (info->map[info->infop.y][info->infop.x - 1] == 'E'
 				&& info->coin == 0)
-			ft_error("YOU WIN!!");
+			ft_error("YOU WIN!!", info);
 	}
 }
 
@@ -119,6 +119,6 @@ void	ft_right(t_info *info)
 		}
 		else if (info->map[info->infop.y][info->infop.x + 1] == 'E'
 				&& info->coin == 0)
-			ft_error("YOU WIN!!");
+			ft_error("YOU WIN!!", info);
 	}
 }
