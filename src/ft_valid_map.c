@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 16:33:23 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 17:09:03 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,10 @@ int	ft_valid_map(char *name_map, t_info *info)
 	{
 		fd = open(name_map, O_RDONLY);
 		if (fd < 0)
-			ft_error("Error al abrir el archivo", info);
+		{
+			ft_printf("\033[0;91mError a intentar abrir el mapa\033[0m\n");
+			exit(1);
+		}
 		ft_readmap(fd, info);
 		close(fd);
 	}

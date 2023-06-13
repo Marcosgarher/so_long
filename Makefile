@@ -6,7 +6,7 @@
 #    By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:12:38 by marcogar          #+#    #+#              #
-#    Updated: 2023/06/13 15:47:47 by marcogar         ###   ########.fr        #
+#    Updated: 2023/06/13 17:27:39 by marcogar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SL = main.c\
 	 movements_utils.c\
 	 parse.c\
 	 parse_utils.c
+
 SRC_SL = $(addprefix src/, $(SL))
 OBJ_SL = $(SRC_SL:.c=.o)
 
