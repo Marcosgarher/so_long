@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 17:37:26 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 10:45:55 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ int				ft_valid_map(char *name_map, t_info *info);
 
 /* PARSE */
 
-void			ft_parse(t_info *info);
+char 			**ft_copy_map(t_info *info);
+char			**find_path(char **map, int x, int y);
+void			parse(t_info *info);
 
 /* PRINT MAP */
 
