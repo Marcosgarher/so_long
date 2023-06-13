@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 12:29:18 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:30:32 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,17 @@ int				ft_valid_map(char *name_map, t_info *info);
 /* PARSE */
 
 int				valid_path(char **map);
+int  			valid_path_coins(char **map);
 char			**ft_copy_map(t_info *info);
 char			**find_path(char **map, int x, int y);
+char			**find_path_coins(char **map, int x, int y);
 void			parse(t_info *info);
 
 /* PRINT MAP */
 
 void			ft_size_map(char **map, t_info *info);
 void			ft_put_ground(t_info *info);
+void			*create_image(void *mlx, char *path);
 void			ft_select_img(char pointmap, t_info *info);
 void			ft_put_others(t_info *info);
 void			ft_open_win(t_info *info);

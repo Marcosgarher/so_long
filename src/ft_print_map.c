@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:39:53 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 11:49:50 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:25:20 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,8 @@ void	ft_size_map(char **map, t_info *info)
 
 void	ft_put_ground(t_info *info)
 {
-	int	imgwidth;
-	int	imgheight;
-
 	info->imgh = 0;
-	info->data.img = mlx_xpm_file_to_image(info->mlx, "xpm/suelo.xpm",
-			&imgwidth, &imgheight);
+	info->data.img = create_image(info->mlx, "xpm/suelo.xpm");
 	while (info->imgh < info->winh)
 	{
 		info->imgw = 0;

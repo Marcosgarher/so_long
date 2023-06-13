@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 14:32:05 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 13:22:29 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:14:52 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ void	parse(t_info *info)
 
     copy_map = ft_copy_map(info);
     ft_serch_player(info);
+    copy_map = find_path_coins(copy_map, info->infop.x, info->infop.y);
+    if (!valid_path_coins(copy_map))
+    {
+        ft_free_rute(copy_map);
+        ft_error("No hay un camino valido");
+    }
     copy_map = find_path(copy_map, info->infop.x, info->infop.y);
     if (!valid_path(copy_map))
     {
