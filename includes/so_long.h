@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/14 11:04:19 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:05:48 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
+# define ESC 53
 
 /* STRUCTS */
 
@@ -105,5 +106,6 @@ void			ft_leaks(void);
 
 void			ft_error(char *err, t_info *info);
 void			ft_perror(char *err);
+void			ft_win(char *error, t_info *info);
 
 #endif

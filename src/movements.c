@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 11:37:47 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/14 13:03:58 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:34:26 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_key_log(int key, t_info *info)
 {
-	if (key == 53)
+	if (key == ESC)
 		ft_exit(key, info);
 	if (key == KEY_W)
 		ft_up(info);
@@ -43,13 +43,13 @@ void	ft_up(t_info *info)
 			info->infop.y--;
 			ft_render(info, info->infop.x, info->infop.y, 'P');
 			info->infop.movc++;
-			ft_printf("Movements: %i\n", info->infop.movc);
+			ft_printf("\033[1;34mMovements: %i\033[0m\n", info->infop.movc);
 		}
 		else if (info->map[info->infop.y - 1][info->infop.x] == 'E'
 				&& info->coin == 0)
 		{
-			//ft_printf("Movements: %i\n", ++info->infop.movc);
-			ft_error("YOU WIN!!", info);
+			ft_printf("\033[1;34mMovements: %i\033[0m\n", ++info->infop.movc);
+			ft_win("YOU WIN!!", info);
 		}
 	}
 }
@@ -70,11 +70,14 @@ void	ft_down(t_info *info)
 			info->infop.y++;
 			ft_render(info, info->infop.x, info->infop.y, 'P');
 			info->infop.movc++;
-			ft_printf("Movements: %i\n", info->infop.movc);
+			ft_printf("\033[1;34mMovements: %i\033[0m\n", info->infop.movc);
 		}
 		else if (info->map[info->infop.y + 1][info->infop.x] == 'E'
 				&& info->coin == 0)
-			ft_error("YOU WIN!!", info);
+		{
+			ft_printf("\033[1;34mMovements: %i\033[0m\n", ++info->infop.movc);
+			ft_win("YOU WIN!!", info);
+		}
 	}
 }
 
@@ -94,11 +97,14 @@ void	ft_left(t_info *info)
 			info->infop.x--;
 			ft_render(info, info->infop.x, info->infop.y, 'P');
 			info->infop.movc++;
-			ft_printf("Movements: %i\n", info->infop.movc);
+			ft_printf("\033[1;34mMovements: %i\033[0m\n", info->infop.movc);
 		}
 		else if (info->map[info->infop.y][info->infop.x - 1] == 'E'
 				&& info->coin == 0)
-			ft_error("YOU WIN!!", info);
+		{
+			ft_printf("\033[1;34mMovements: %i\033[0m\n", ++info->infop.movc);
+			ft_win("YOU WIN!!", info);
+		}
 	}
 }
 
@@ -118,10 +124,13 @@ void	ft_right(t_info *info)
 			info->infop.x++;
 			ft_render(info, info->infop.x, info->infop.y, 'P');
 			info->infop.movc++;
-			ft_printf("Movements: %i\n", info->infop.movc);
+			ft_printf("\033[1;34mMovements: %i\033[0m\n", info->infop.movc);
 		}
 		else if (info->map[info->infop.y][info->infop.x + 1] == 'E'
 				&& info->coin == 0)
-			ft_error("YOU WIN!!", info);
+		{
+			ft_printf("\033[1;34mMovements: %i\033[0m\n", ++info->infop.movc);
+			ft_win("YOU WIN!!", info);
+		}
 	}
 }

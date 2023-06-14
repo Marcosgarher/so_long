@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/14 11:13:05 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:11:39 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_readmap(int fd, t_info *info)
 			break ;
 		if(line[0] == '\n')
 		{
-			ft_printf("\033[0;91mMapa no valido\033[0m\n");
+			ft_perror("Invalid map");
 			exit(1);
 		}
 		strmap = ft_strjoin(strmap, line);
@@ -48,18 +48,18 @@ int	ft_valid_char(char c, t_info *info)
 	else if (c == '0')
 		info->ground++;
 	else
-		ft_error("Caracter no valido", info);
+		ft_error("Invalid character", info);
 	return (0);
 }
 
 void	ft_check_sprites(t_info *info)
 {
 	if (info->player != 1)
-		ft_error("Falta o hay más de un personaje", info);
+		ft_error("Missing or there is more than one character", info);
 	else if (info->coin < 1)
-		ft_error("Faltan coleccionables", info);
+		ft_error("Missing collectables", info);
 	else if (info->exit != 1)
-		ft_error("Falta o hay más de una salida", info);
+		ft_error("Missing or there is more than one exit", info);
 }
 
 int	ft_check_map(t_info *info)
@@ -91,18 +91,18 @@ int	ft_valid_map(char *name_map, t_info *info)
 	if (ft_valid_file(name_map))
 	{
 		fd = open(name_map, O_RDONLY);
-		if (fd < 0)
+		if (fd <= 0)
 		{
-			ft_printf("\033[0;91mError a intentar abrir el mapa\033[0m\n");
+			ft_perror("Can't open the map");
 			exit(1);
 		}
 		ft_readmap(fd, info);
 		close(fd);
 	}
 	else
-		ft_perror("El mapa no es valido");
+		ft_perror("Invalid map");
 	if (ft_check_map(info))
-		ft_error("Error en el mapa", info);
+		ft_perror("Invalid map");
 	ft_is_rectangle(info);
 	ft_check_border(info);
 	parse(info); 

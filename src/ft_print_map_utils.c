@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:11:39 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/14 11:05:14 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:53:24 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*create_image(void *mlx, char *path)
 
 	img = mlx_xpm_file_to_image(mlx, path, &imgwidth, &imgheight);
 	if (img == NULL)
-		ft_perror("Error");
+		ft_perror("Failed to load image");
 	return (img);
 }
 

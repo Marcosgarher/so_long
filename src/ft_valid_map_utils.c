@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:48:54 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/14 11:14:38 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:56:26 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_is_rectangle(t_info *info)
 	while (info->map[i + 1])
 	{
 		if (ft_strlen(info->map[i]) != ft_strlen(info->map[i + 1]))
-			ft_error("No es un rectangulo", info);
+			ft_error("The map is not a rectangle", info);
 		++i;
 	}
 }
@@ -60,18 +60,18 @@ void	ft_check_border(t_info *info)
 	while (info->map[0][x])
 	{
 		if (info->map[0][x++] != '1')
-			ft_error("El mapa no esta cerrado", info);
+			ft_error("The map is not close", info);
 	}
 	while (info->map[y + 1])
 	{
 		if (info->map[y][0] != '1' || info->map[y][len - 1] != '1')
-			ft_error("El mapa no esta cerrado", info);
+			ft_error("The map is not close", info);
 		++y;
 	}
 	x = 0;
 	while (info->map[y][x])
 	{
 		if (info->map[y][x++] != '1')
-			ft_error("El mapa no esta cerrado", info);
+			ft_error("The map is not close", info);
 	}
 }
