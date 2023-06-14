@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:51:21 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/12 12:47:56 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 09:42:50 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_ini_vars(t_info *info)
 	info->mlx = NULL;
 	info->mlx_win = NULL;
 	info->infop.movc = 0;
+	info->img = NULL;
 	info->imgw = 0;
 	info->imgh = 0;
 	info->coin = 0;

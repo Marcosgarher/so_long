@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 11:37:47 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 16:38:45 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 13:03:58 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ void	ft_up(t_info *info)
 		}
 		else if (info->map[info->infop.y - 1][info->infop.x] == 'E'
 				&& info->coin == 0)
+		{
+			//ft_printf("Movements: %i\n", ++info->infop.movc);
 			ft_error("YOU WIN!!", info);
+		}
 	}
 }
 

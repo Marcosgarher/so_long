@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:48:54 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 16:07:37 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 11:14:38 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_valid_file(char *name_map)
 			return (1);
 		}
 	}
+	ft_free_rute(rute);
 	return (0);
 }
 

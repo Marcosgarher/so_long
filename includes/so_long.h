@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:17:00 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 16:41:53 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 11:04:19 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,6 @@
 
 /* STRUCTS */
 
-typedef struct s_data
-{
-	void		*img;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-}				t_data;
-
 typedef struct s_player
 {
 	int			x;
@@ -45,10 +36,10 @@ typedef struct s_player
 
 typedef struct s_info
 {
-	t_data		data;
 	t_player	infop;
 	void		*mlx;
 	void		*mlx_win;
+	void		*img;
 	int			imgw;
 	int			imgh;
 	int			coin;
@@ -113,5 +104,6 @@ void			ft_leaks(void);
 /* ERROR */
 
 void			ft_error(char *err, t_info *info);
+void			ft_perror(char *err);
 
 #endif

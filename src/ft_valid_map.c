@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 17:09:03 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 11:13:05 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int	ft_valid_char(char c, t_info *info)
 
 void	ft_check_sprites(t_info *info)
 {
-	if (info->player <= 0 || info->player > 1)
+	if (info->player != 1)
 		ft_error("Falta o hay más de un personaje", info);
 	else if (info->coin < 1)
 		ft_error("Faltan coleccionables", info);
-	else if (info->exit <= 0 || info->exit > 1)
+	else if (info->exit != 1)
 		ft_error("Falta o hay más de una salida", info);
 }
 
@@ -100,13 +100,12 @@ int	ft_valid_map(char *name_map, t_info *info)
 		close(fd);
 	}
 	else
-		ft_error("El mapa no es valido", info);
+		ft_perror("El mapa no es valido");
 	if (ft_check_map(info))
 		ft_error("Error en el mapa", info);
 	ft_is_rectangle(info);
 	ft_check_border(info);
-	parse(info);
-	ft_copy_map(info);
+	parse(info); 
 	ft_free_map(info);
 	return (0);
 }

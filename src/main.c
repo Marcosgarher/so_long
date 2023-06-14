@@ -6,22 +6,16 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/13 15:59:04 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/14 12:59:05 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_leaks(void)
-{
-	system("leaks -q so_long");
-}
-
 int	main(int argc, char *argv[])
 {
 	t_info	*info;
 
-	atexit(ft_leaks);
 	if (argc != 2)
 		ft_printf("\033[0;91mDebes de pasar un mapa\033[0m\n");
 	if (argc == 2)
