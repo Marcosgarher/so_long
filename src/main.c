@@ -6,21 +6,16 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 11:29:42 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/14 17:45:36 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/15 08:40:38 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void ft_leaks(void)
-{
-	system("leaks -q so_long");
-}
 int	main(int argc, char *argv[])
 {
 	t_info	*info;
 
-	//atexit(ft_leaks);
 	if (argc != 2)
 		ft_perror("You must pass a map");
 	if (argc == 2)

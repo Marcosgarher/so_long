@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:04:13 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/14 17:11:39 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/15 08:49:43 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,14 @@ int	ft_valid_map(char *name_map, t_info *info)
 		fd = open(name_map, O_RDONLY);
 		if (fd <= 0)
 		{
-			ft_perror("Can't open the map");
+			ft_perror("Can not open the map");
 			exit(1);
 		}
 		ft_readmap(fd, info);
 		close(fd);
 	}
 	else
-		ft_perror("Invalid map");
+		ft_perror("Invalid extension");
 	if (ft_check_map(info))
 		ft_perror("Invalid map");
 	ft_is_rectangle(info);

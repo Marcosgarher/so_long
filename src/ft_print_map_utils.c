@@ -6,7 +6,7 @@
 /*   By: marcogar <marcogar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:11:39 by marcogar          #+#    #+#             */
-/*   Updated: 2023/06/14 16:53:24 by marcogar         ###   ########.fr       */
+/*   Updated: 2023/06/15 08:57:23 by marcogar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void	*create_image(void *mlx, char *path)
 void	ft_select_img(char pointmap, t_info *info)
 {
 	if (pointmap == '1')
-		info->img = create_image(info->mlx, "xpm/pared.xpm");
+		info->img = create_image(info->mlx, "textures/pared.xpm");
 	if (pointmap == 'P')
-		info->img = create_image(info->mlx, "xpm/dino.xpm");
+		info->img = create_image(info->mlx, "textures/dino.xpm");
 	if (pointmap == 'E')
-		info->img = create_image(info->mlx, "xpm/portal.xpm");
+		info->img = create_image(info->mlx, "textures/portal.xpm");
 	if (pointmap == 'C')
-		info->img = create_image(info->mlx, "xpm/pata.xpm");
+		info->img = create_image(info->mlx, "textures/pata.xpm");
 	if (pointmap == '0')
-		info->img = create_image(info->mlx, "xpm/suelo.xpm");
+		info->img = create_image(info->mlx, "textures/suelo.xpm");
 	return ;
 }
